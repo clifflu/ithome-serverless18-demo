@@ -3,11 +3,23 @@ provider:
   name: aws
   runtime: nodejs6.10
   environment:
-    uri: "https://www.104.com.tw/"
-    expect: "104人力銀行"
+    DEBUG: 0
 
 functions:
   check:
-    handler: handler.hdlr_check
+    memorySize: 1536
+    timeout: 180
+    handler: index.handler
     events:
       - schedule: rate(10 minutes)
+
+plugins:
+  - serverless-hooks-plugin
+
+package:
+  artifact: ./package.zip
+
+custom:
+  hooks:
+    package:initialize:
+      - npm run package
