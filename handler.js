@@ -1,17 +1,19 @@
-const request = require('request')
+const child_process = require('child_process')
 
 function hdlr_check(evt, ctx, cb) {
-  function request_callback(err, response, body) {
-    if (!err && -1 === body.indexOf(process.env.expect)) {
-      err = new Error('Expect not found in body')
-    }
-    
-    cb(err, 'done')
+  function exec_cb(err, stdout, stderr) {
+    let output = JSON.parse(stdout)
+    console.log(output)
+    return output.time.total
   }
 
-  request.get(process.env['uri'], request_callback)
+  child_process.exec(
+    `curl -sLm8 -w "@curl-format.txt" -o /dev/null ${process.env.uri}`, exec_cb
+  )
 }
 
 module.exports = {
   hdlr_check,
 }
+
+
