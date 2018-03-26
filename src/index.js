@@ -1,5 +1,12 @@
 const setup = require('./starter-kit/setup');
 
+const sleep = (duration) => {
+  duration = duration || 1000;
+  return new Promise((resolve) => {
+    setTimeout(resolve, duration);
+  });
+};
+
 exports.handler = async (event, context, callback) => {
   // For keeping the browser launch
   context.callbackWaitsForEmptyEventLoop = false;
@@ -18,6 +25,7 @@ exports.run = async (browser) => {
   );
 
   await page.type('#lst-ib', '104 ');
+  await sleep(500);
 
   // https://github.com/GoogleChrome/puppeteer/blob/master/docs/api.md#pageclickselector-options
   await Promise.all([
