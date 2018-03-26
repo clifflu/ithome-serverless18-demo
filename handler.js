@@ -4,7 +4,7 @@ function hdlr_check(evt, ctx, cb) {
   function exec_cb(err, stdout, stderr) {
     let output = JSON.parse(stdout)
     console.log(output)
-    return output.time.total
+    cb(null, output.time.total)
   }
 
   child_process.exec(
