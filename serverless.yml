@@ -1,0 +1,13 @@
+service: sls18-demo-basic
+provider:
+  name: aws
+  runtime: nodejs6.10
+  environment:
+    uri: "https://www.104.com.tw/"
+    expect: "104人力銀行"
+
+functions:
+  check:
+    handler: handler.hdlr_check
+    events:
+      - schedule: rate(10 minutes)

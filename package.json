@@ -1,0 +1,23 @@
+{
+  "name": "ithome-serverless18-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/clifflu/ithome-serverless18-demo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/clifflu/ithome-serverless18-demo/issues"
+  },
+  "homepage": "https://github.com/clifflu/ithome-serverless18-demo#readme",
+  "dependencies": {
+    "request": "^2.85.0"
+  }
+}
