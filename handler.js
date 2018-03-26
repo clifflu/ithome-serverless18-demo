@@ -6,7 +6,7 @@ function hdlr_check(evt, ctx, cb) {
       err = new Error('Expect not found in body')
     }
     
-    cb(err)
+    cb(err, 'done')
   }
 
   request.get(process.env['uri'], request_callback)
